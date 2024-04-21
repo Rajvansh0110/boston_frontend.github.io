@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ML API</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" , rel="stylesheet" , type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Arimo" , rel="stylesheet" , type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Hind:300" , rel="stylesheet" , type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" , rel="stylesheet" , type="text/css">
+    <style>
+      body
+      {
+        margin: 40px; ;
+        background-color: rgb(232, 232, 232);
+      }
+.card {
+  width: 30%;
+  background: rgba(211, 211, 211, 0.114);
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset; */
+  box-shadow: 0 8px 50px #23232333;
+  border: none;
+  border-radius: 30px;
+  padding-top: 10px;
+  position: relative;
+  margin: auto;
+  font-family: inherit;
+}
+
+.card span {
+  font-weight: 600;
+  text-align: center;
+  display: block;
+  padding-top: 10px;
+  font-size: 1.2em;
+}
+
+.card .img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.card button {
+    padding: 1em 1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin-left: 5px;
+  display: block;
+  margin: auto;
+  background: #e8e8e8;
+  color: #111111;
+  font-weight: 600;
+}
+
+.card button:hover {
+  background: #212121;
+  color: #ffffff;
+}
+.hero {
+  border: none;
+  width: 70%;
+  outline: none;
+  border-radius: 15px;
+  margin-top : 10px;
+  margin-bottom: 10px;
+  margin-left: 10% ;
+  padding: 1em;
+  background: rgba(255, 255, 255);
+  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+  transition: 300ms ease-in-out;
+}
+
+.hero:focus {
+  background-color: white;
+  transform: scale(1.05);
+  box-shadow: 13px 13px 100px #969696,
+             -13px -13px 100px #ffffff;
+}
+
+.response{
+    margin: 10px;
+}
+@media screen and (max-width: 576px) {
+  .card {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 792px) {
+  .card {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 793px) and (max-width: 1200px) {
+  .card {
+    width: 50%;
+  }
+}
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="containor">
+    <div class="card">
+      <div class="img">
+        <img class="img" src="yy.jpg" alt="">
+      </div>
+    <form class="mera_form" action="{{ url_for('predict')}}" method="post">
+       <span> <h1>Boston House Price Prediction</h1> </span>
+        <input class="hero" type="text" name="Average Rooms per dwelling"
+            title="Average Rooms per dwelling" placeholder="Average Rooms per dwelling" ,
+            required="required" /><br>
+        <input class="hero" type="text" name="Pupil-Teacher Ratio by town"
+            title="Pupil-Teacher Ratio by town" placeholder="Pupil-Teacher Ratio by town" ,
+            required="required" /><br>
+        <input class="hero" type="text" name="% Lower Status Proportion" title="% Lower Status Proportion"
+            placeholder="% Lower Status Proportion" , required="required" /><br><br>
+
+        <button type="submit" class="btn">Predict</button>
+        <div class="response">
+         <span>   {{prediction_text}}
+        </span>
+        </div>
+        <br>
+    </form>
+</div>
+</div>
+
+    
+</body>
+</html>
